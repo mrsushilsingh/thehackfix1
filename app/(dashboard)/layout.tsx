@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CircleIcon, Home, LogOut } from 'lucide-react';
+import { ShieldCheck, Home, LogOut } from 'lucide-react';  // Using ShieldCheck for branding
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,7 +14,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useUser } from '@/lib/auth';
 import { signOut } from '@/app/(login)/actions';
 import { useRouter } from 'next/navigation';
-
+import Head from 'next/head';
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, setUser } = useUser();
@@ -30,8 +30,8 @@ function Header() {
     <header className="border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <CircleIcon className="h-6 w-6 text-orange-500" />
-          <span className="ml-2 text-xl font-semibold text-gray-900">ACME</span>
+          <ShieldCheck className="h-8 w-8 text-orange-600" /> {/* Updated icon for branding */}
+          <span className="ml-2 text-xl font-semibold text-gray-900">theHACKFIX</span>
         </Link>
         <div className="flex items-center space-x-4">
           <Link
@@ -39,6 +39,12 @@ function Header() {
             className="text-sm font-medium text-gray-700 hover:text-gray-900"
           >
             Pricing
+          </Link>
+          <Link
+            href="/services"
+            className="text-sm font-medium text-gray-700 hover:text-gray-900"
+          >
+            Services
           </Link>
           {user ? (
             <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -91,4 +97,4 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {children}
     </section>
   );
-}
+}  

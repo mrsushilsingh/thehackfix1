@@ -41,9 +41,6 @@ importers:
       '@types/node':
         specifier: ^22.10.2
         version: 22.10.2
-      '@types/react':
-        specifier: 19.0.1
-        version: 19.0.1
       '@types/react-dom':
         specifier: 19.0.2
         version: 19.0.2(@types/react@19.0.1)
@@ -113,6 +110,10 @@ importers:
       zod:
         specifier: ^3.24.1
         version: 3.24.1
+    devDependencies:
+      '@types/react':
+        specifier: 19.0.1
+        version: 19.0.1
 
 packages:
 
